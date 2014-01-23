@@ -21,7 +21,8 @@
     view.backgroundColor = [self.delegate respondsToSelector:@selector(color)] ? [self.delegate color] : [self color];
     view.alpha = [self.delegate respondsToSelector:@selector(alpha)] ? [self.delegate alpha] : [self alpha];
 
-    [view addSubview:[self activityIndicator]];
+    UIActivityIndicatorView *indicator = [self.delegate respondsToSelector:@selector(activityIndicator)] ? [self.delegate activityIndicator] : [self activityIndicator];
+    [view addSubview:indicator];
     
     self.view = view;
 
