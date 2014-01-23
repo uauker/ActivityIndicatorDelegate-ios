@@ -19,8 +19,6 @@
     [super viewDidLoad];
 
     self.loading = [[PGLoadingView alloc] initWithDelegate:self];
-//    self.loading.delegate = self;
-
     
     [self.loading show];
 //    [self.loading hide];
