@@ -27,6 +27,8 @@
 
 @property (nonatomic, strong) UIView *view;
 
+- (id)initWithDelegate:(id<PGLoadingViewDelegate>) delegate;
+
 - (void)show;
 - (void)hide;
 

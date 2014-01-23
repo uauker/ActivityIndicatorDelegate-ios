@@ -12,6 +12,16 @@
 
 #pragma public
 
+- (id)initWithDelegate:(id<PGLoadingViewDelegate>) delegate {
+    self = [super init];
+    
+    if (self) {
+        self.delegate = delegate;
+    }
+    
+    return self;
+}
+
 - (void)show {
     [[self.delegate viewToLoading] addSubview:[self sharedView]];
 }

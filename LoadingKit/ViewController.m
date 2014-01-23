@@ -18,8 +18,8 @@
 {
     [super viewDidLoad];
 
-    self.loading = [[PGLoadingView alloc] init];
-    self.loading.delegate = self;
+    self.loading = [[PGLoadingView alloc] initWithDelegate:self];
+//    self.loading.delegate = self;
 
     
     [self.loading show];
@@ -36,9 +36,9 @@
     return self.view;
 }
 
-- (UIColor *)color {
-    return [UIColor greenColor];
-}
+//- (UIColor *)color {
+//    return [UIColor greenColor];
+//}
 
 - (CGFloat)alpha {
     return 0.8f;
