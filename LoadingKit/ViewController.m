@@ -32,8 +32,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (UIViewController *)viewControllerToLoading {
-    return self;
+- (UIView *)viewToLoading {
+    return self.view;
 }
 
 - (UIColor *)color {

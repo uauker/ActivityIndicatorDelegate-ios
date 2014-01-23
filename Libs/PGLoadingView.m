@@ -13,7 +13,7 @@
 #pragma public
 
 - (void)show {
-    [[self.delegate viewControllerToLoading].view addSubview:[self sharedView]];
+    [[self.delegate viewToLoading] addSubview:[self sharedView]];
 }
 
 - (void)hide {
@@ -27,7 +27,7 @@
         return self.view;
     }
     
-    UIView *superview = [self.delegate viewControllerToLoading].view;
+    UIView *superview = [self.delegate viewToLoading];
     
     UIView *view = [[UIView alloc] initWithFrame:superview.frame];
     view.backgroundColor = [self.delegate respondsToSelector:@selector(color)] ? [self.delegate color] : [self color];
@@ -44,7 +44,7 @@
 # pragma OPTIONAL
 
 - (UIActivityIndicatorView *)activityIndicator {
-    UIView *superview = [self.delegate viewControllerToLoading].view;
+    UIView *superview = [self.delegate viewToLoading];
     
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [indicator setCenter:CGPointMake(superview.frame.size.width/2.0, superview.frame.size.height/2.0)];

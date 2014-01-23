@@ -11,7 +11,7 @@
 @protocol PGLoadingViewDelegate <NSObject>
 
 @required
-- (UIViewController *)viewControllerToLoading;
+- (UIView *)viewToLoading;
 
 @optional
 - (UIActivityIndicatorView *)activityIndicator;
