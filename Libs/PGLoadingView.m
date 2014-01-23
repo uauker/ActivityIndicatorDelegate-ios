@@ -10,24 +10,7 @@
 
 @implementation PGLoadingView
 
-- (UIView *)sharedView {
-    if (self.view) {
-        return self.view;
-    }
-
-    UIView *superview = [self.delegate viewControllerToLoading].view;
-    
-    UIView *view = [[UIView alloc] initWithFrame:superview.frame];
-    view.backgroundColor = [self.delegate respondsToSelector:@selector(color)] ? [self.delegate color] : [self color];
-    view.alpha = [self.delegate respondsToSelector:@selector(alpha)] ? [self.delegate alpha] : [self alpha];
-
-    UIActivityIndicatorView *indicator = [self.delegate respondsToSelector:@selector(activityIndicator)] ? [self.delegate activityIndicator] : [self activityIndicator];
-    [view addSubview:indicator];
-    
-    self.view = view;
-
-    return self.view;
-}
+#pragma public
 
 - (void)show {
     [[self.delegate viewControllerToLoading].view addSubview:[self sharedView]];
@@ -35,6 +18,27 @@
 
 - (void)hide {
     [[self sharedView] removeFromSuperview];
+}
+
+# pragma private
+
+- (UIView *)sharedView {
+    if (self.view) {
+        return self.view;
+    }
+    
+    UIView *superview = [self.delegate viewControllerToLoading].view;
+    
+    UIView *view = [[UIView alloc] initWithFrame:superview.frame];
+    view.backgroundColor = [self.delegate respondsToSelector:@selector(color)] ? [self.delegate color] : [self color];
+    view.alpha = [self.delegate respondsToSelector:@selector(alpha)] ? [self.delegate alpha] : [self alpha];
+    
+    UIActivityIndicatorView *indicator = [self.delegate respondsToSelector:@selector(activityIndicator)] ? [self.delegate activityIndicator] : [self activityIndicator];
+    [view addSubview:indicator];
+    
+    self.view = view;
+    
+    return self.view;
 }
 
 # pragma OPTIONAL
