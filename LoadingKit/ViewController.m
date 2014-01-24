@@ -21,7 +21,7 @@
     self.loading = [[PGLoadingView alloc] initWithDelegate:self];
     
     [self.loading show];
-//    [self.loading hide];
+    [self.loading hide];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,8 +38,8 @@
 //    return [UIColor greenColor];
 //}
 
-- (CGFloat)alpha {
-    return 0.8f;
-}
+//- (CGFloat)alpha {
+//    return 0.8f;
+//}
 
 @end

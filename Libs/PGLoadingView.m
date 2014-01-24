@@ -27,7 +27,13 @@
 }
 
 - (void)hide {
-    [[self sharedView] removeFromSuperview];
+    [UIView animateWithDuration:1 animations:^{
+        [self sharedView].alpha = 0;
+    } completion:^(BOOL finished) {
+        if (finished) {
+            [[self sharedView] removeFromSuperview];
+        }
+    }];
 }
 
 # pragma private
@@ -64,7 +70,7 @@
 }
 
 - (CGFloat)alpha {
-    return 0.4f;
+    return 1.0f;
 }
 
 - (UIColor *)color {
